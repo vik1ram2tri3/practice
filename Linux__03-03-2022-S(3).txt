@@ -1,0 +1,38 @@
+Linux____03-03-2022
+
+pwd - present working directory
+
+cd -change directory(used to switch betweeen directories)
+mkdir-make a directory
+touch -make a file(empty)
+cat >filename --we can add data(It will remove the existing data)
+cat filename -- shows the content in file
+cat >> filename --we can concatenate the data to existing data
+
+#vi- (command mode,insert mode,execute mode)
+	->u :undo
+	->i :insert(to modify the data)
+	-> pres Esc and :wq! ->save and quit
+
+To set hostname :  hostnamectl set-hostname sys-1
+
+
+
+Linux(04-03-2022)
+
+CP command
+-pr  -- preserved time frame
+
+-rf  ->
+-r  -->
+-pvr  --> it will show the process of copying(v-verbose)
+
+MV command
+
+
+
+Special permissions
+
+set uid
+set gid
+sticky bit
