@@ -1,0 +1,934 @@
+
+           ###   LINUX on 28-02-2022   ###
+
+ ***Kernel and different types of kernel
+
+    Kernel is the heart of an Operating System. The kernel 
+    is the first program that is loaded after the boot loader whenever
+    we start a system. The Kernel is present in the memory until the Operating System is shut-down.
+    Kernel provides an interface between the user and the hardware components 
+    of the system. When a process makes a request to the Kernel, then it is called System Call.
+
+ ***Different types of Kernel
+   
+Monolithic Kernel
+      In monolithic Kernels both user services and the kernel services are implemented in the same memory space.
+      By doing this, the size of the Kernel is increased and at the same time it increases the size of the 
+      Operating System. As there is no separate User Space and Kernel Space, so the execution of the process 
+      will be faster in Monolithic Kernels.
+
+      Advantages:-
+      It provides CPU scheduling, memory scheduling, file management through System calls.
+      Execution of the process is fast as there is no separate space.
+
+      Disadvantages:-
+      If the service fails, then the system failure happens.
+      If you try to add new services then the entire Operating System needs to be modified.
+Microkernel
+      A Microkernel is not the same as the Monolithic kernel. It is a little bit 
+      different because in a Microkernel, the user services and kernel services are implemented 
+      into different spaces. Because of using User Space and Kernel Space separately, it reduces
+      the size of the Kernel and in turn, reduces the size of the Operating System.
+      As we are using different spaces for user and kernel service, the communication between 
+      application and services is done with the help of message parsing because of this it reduces 
+      the speed of execution.
+
+      The advantage of microkernel is that it can easily add new services at any time.
+      The disadvantage of microkernel is that here we are using User Space and Kernel Space separately.
+      So, the communication between these can reduce the overall execution time.
+
+Hybrid Kernel
+      It is the combination of both Monolithic Kernel and Microkernel. It uses the speed of the 
+      Monolithic Kernel and the modularity of Microkernel.
+      Hybrid kernels are micro kernels having some non-essential code in kernel-space in order
+      for the code to run more quickly than it would be in user-space. So, some services like 
+      network stack or file systems are run in Kernel space to reduce the performance overhead, 
+      but still, it runs kernel code as servers in the user-space.
+
+Nanokernel
+      The name suggests the complete code of the kernel is very small,
+      which means the code executing in the privileged mode of the hardware is very small.
+      The term nanokernel is used to explain that the kernel supports a nanosecond clock resolution.
+
+Exokernel
+      Exokernel is an Operating System kernel developed by the group of MIT parallel 
+      and the Distributed Operating Systems. In this type of kernel, the resource protection is 
+      separated from the management which results in allowing us to perform application specific customization.
+      In the Exokernel, there is no force abstraction and this is the feature that makes it different
+      from a Monolithic Kernel and Microkernel. But the drawback of this is the complex design. The design
+      of the Exokernel is very complex.
+
+
+
+Shells and different types of shells
+
+1. The Bourne Shell (sh)
+Developed at AT&T Bell Labs by Steve Bourne, the Bourne shell is regarded as the first UNIX shell ever. It is denoted as sh. It gained popularity due to its compact nature and high speeds of operation.
+This is what made it the default shell for Solaris OS. It is also used as the default shell for all Solaris system administration scripts. Start reading about shell scripting here.
+However, the Bourne shell has some major drawbacks.
+It doesn’t have in-built functionality to handle logical and arithmetic operations.
+Also, unlike most different types of shells in Linux, the Bourne shell cannot recall previously used commands.
+It also lacks comprehensive features to offer a proper interactive use.
+The complete path-name for the Bourne shell is /bin/sh and /sbin/sh. By default, it uses the prompt # for the root user and $ for the non-root users.
+
+2. The GNU Bourne-Again Shell (bash)
+More popularly known as the Bash shell, the GNU Bourne-Again shell was designed to be compatible with the Bourne shell. It incorporates useful features from different types of shells in Linux such as Korn shell and C shell.
+It allows us to automatically recall previously used commands and edit them with help of arrow keys, unlike the Bourne shell.
+The complete path-name for the GNU Bourne-Again shell is /bin/bash. By default, it uses the prompt bash-VersionNumber# for the root user and bash-VersionNumber$ for the non-root users.
+
+3. The C Shell (csh)
+The C shell was created at the University of California by Bill Joy. It is denoted as csh. It was developed to include useful programming features like in-built support for arithmetic operations and a syntax similar to the C programming language.
+Further, it incorporated command history which was missing in different types of shells in Linux like the Bourne shell. Another prominent feature of a C shell is “aliases”.
+The complete path-name for the C shell is /bin/csh. By default, it uses the prompt hostname# for the root user and hostname% for the non-root users.
+
+4. The Korn Shell (ksh)
+The Korn shell was developed at AT&T Bell Labs by David Korn, to improve the Bourne shell. It is denoted as ksh. The Korn shell is essentially a superset of the Bourne shell.
+Besides supporting everything that would be supported by the Bourne shell, it provides users with new functionalities. It allows in-built support for arithmetic operations while offereing interactive features which are similar to the C shell.
+The Korn shell runs scripts made for the Bourne shell, while offering string, array and function manipulation similar to the C programming language. It also supports scripts which were written for the C shell. Further, it is faster than most different types of shells in Linux, including the C shell.
+The complete path-name for the Korn shell is /bin/ksh. By default, it uses the prompt # for the root user and $ for the non-root users.
+
+5. The Z Shell (zsh)
+The Z Shell or zsh is a sh shell extension with tons of improvements for customization. If you want a modern shell that has all the features a much more, the zsh shell is what you’re looking for.
+
+
+
+              ###   Basic LINUX commands on 02-03-2022 ###
+
+
+Monitoring commands
+Modification commands
+
+
+/bin  ----> /bin is a standard subdirectory of the root directory in Unix-like operating systems
+            that contains the executable (i.e., ready to run) programs that must be available in 
+            order to attain minimal functionality for the purposes of booting (i.e., starting) and repairing a system.
+            /bin is by default in PATH, which is the list of directories that the system searches for the 
+            corresponding program when a command is issued. This means that any executable file (i.e., runnable program)
+            in /bin can be run just by entering the file name at the command line and then pressing the ENTER key.
+
+/sbin ----> commands executed by super user
+            is a standard subdirectory of the root directory in Linux that contains executable (i.e., ready to run) programs. 
+            They are mostly administrative tools, that should be made available only to the root (i.e., administrative) user.
+
+
+/boot ----> storing booting information like boot logos
+/home ----> It shows home directories
+/etc  ----> configuration files
+/var  ----> stores all previous logos
+/opt  ----> installation of third party applications
+/proc ----> stores all the present information, RAM memory
+/swap ----> virtual memory, unused applications
+/dev  ----> all the harddisk applications, device files, information, logical volume information
+
+
+               ###  03-03-2022  ###
+
+mkdir (filename) -->  creating new directory
+pwd              -->  present working directory
+cd               -->  for changing directory or switching the directories
+touch            -->  for creating a new file
+cat >> command   -->  for appending data in the file
+cat > command    -->  to add data newly
+cat command      -->  to view data in the file
+enter + ctrlD    -->  to save data in the file
+vi --> 3 modes(command, insert(i),execute)
+Then goto execute mode:
+click Esc, :wq! close the file
+click Esc, :q! close without saving file
+:wq!  -->(w for saving,q for quit, ! for force quit)
+vi             --> to modify data in the file
+:wq!           --> to save 
+:q!            --> closing without saving the file
+hostnamectl set-hostname <xxx> -->  to set hostname to some xxx
+rm -r dir1       -->  to remove a directory
+rmdir dir1       --> to remove a directory
+init 0 command   --> to exit from vmware or poweroff
+
+
+                ###  04-03-2022  ###
+
+history      -->  to view the history
+hostname     -->  to view the hostname
+hostname -I  -->  to dispaly IP address
+
+
+
+***
+we can also create file using vi command.
+***
+
+To copy files( 3 syntaxes or 3 types of copying)
+***
+cp command            --> to copy file
+cp file1 /opt/        --> copy files from source to destination(we should be in tmp)
+cp /tmp/file2 .       --> pulling from destination only(we should be in opt)
+cp /tmp/file3 /opt/   --> by declaring source to destination paths(we should be in tmp)
+***
+
+To copy directories
+***
+cp -r dir1 /opt/        --> copy directories from source to destination
+cp -r /tmp/dir1 .       --> pulling from destination only
+cp -r /tmp/dir1 /opt/   --> by declaring source to destination paths
+***
+
+To find the attributes of those particular directories or files
+***
+ls -l 
+***
+
+To copy file or directories with same time stamp
+***
+cp -pr /tmp/dir2 /opt/
+***
+
+To show the process whether it is copying or not
+***
+cp -pvr /tmp/dir1 /tmp/dir2 /tmp/dir3 /opt
+***
+
+To rename the directory
+***
+mv old_dirname new_dirname  // to rename 
+***
+
+To see date 
+***
+date
+***
+
+To know System configuration
+***
+uname -a
+***
+
+To know architecture
+***
+arch
+***
+
+To know linux version or operating system version details
+***
+cat /etc/os-release
+***
+
+To create progressive directories
+***
+mkdir -p a/b/c/d/e
+***
+
+
+
+                 ###  07-03-2022  ###
+
+
+user management
+
+can be done in 3 ways
+1.
+2.
+3.
+
+To see all users are there
+***
+cat /etc/passwd
+***
+
+To add any user into the server
+***
+useradd (username)
+***
+
+To check all the users 
+***
+cat /etc/passwd
+***
+
+
+To add group
+***
+groupadd (groupname)
+***
+
+To set password to a group
+***
+gpasswd (groupname)
+***
+
+
+To add any user in that particular group
+***
+useradd (username) -g (groupname)
+***
+
+
+To add password to that particular group
+***
+groupadd -p (password) (groupname)
+***
+
+
+To add any user with specific userid
+***
+useradd -u (userid) username
+***
+
+
+To check or view id of a user
+***
+id -u (username)
+***
+
+
+To modify or change userid of a user
+***
+usermod -u (newid) (username)
+***
+
+
+To modify or change username or login name of a user
+***
+usermod -l (new_username) (original_username)
+***
+
+useradd -u 1005 -q 1500 -d /home/varun -s /bin/bash varun
+cat /etc/passwd | grep -i varun
+
+
+              ###  08-03-2022   ###
+
+To create password for user
+***
+
+passwd username
+***
+
+
+To switch user
+***
+su - (username)
+***
+su for switching user
+
+
+To switch to root from user
+***
+sudo -i
+***
+
+
+To find the path
+***
+which commamd
+***
+
+
+root can perform everything to a user
+***
+visudo
+***
+
+
+       ###  09-03-2022  ###
+
+Difference between adduser and useradd commands:-
+Useradd is built-in Linux command that can be found on any Linux system.
+However, creating new users with this low-level is a tedious task because
+it doesn't create home directory and user password by default.
+
+Adduser is not a standard Linux command. It’s essentially a Perl script 
+that uses the useradd command in the background. This high-level utility
+is more efficient in properly creating new users on Linux. It gives you 
+the option to create home directory, set password along with a few more
+parameters. In this command we can directly add user and it only asks to
+set password. Whereas in useradd command we should do it with separate 
+commands.
+
+userdel user_name       --> if we use this command the user will be deleted
+                            but it exists in the home directory
+
+userdel -r user_name   --> to delete user from home directory too.
+
+cat /etc/passwd | grep -i user_name   --> to view only that spcecific user
+cat filename | grep -i (line)       --> to view only that line
+
+
+cat /etc/passwd | sort -rn            --> high sized data or high files, 
+                                          to check high sized file.
+
+find /var -xdev -type f -ls | sort -rn --key=7|head -20    -->
+to show high sized on the top of the file
+
+
+ls -l | sort -rn   --> to sort as low sized files to high sized files.
+
+cat /etc/passwd | grep -v filename          --> to exclude only that specific 
+                                                filename.
+cat /etc/passwd | grep -v user_name         --> to exclude only that specific
+                                                user_name.
+
+cat /etc/passwd | more                      --> 
+
+cat /var/log/messages | more       --> it displays from the top of the file
+
+cat /var/log/messages | less       --> we can scroll using up arrows or down arrows
+cat /var/log/messages | head -10   --> it dispalys top 10 files
+cat /var/log/messages | tail -2    --> it displays bottom 2 files.
+tail -f /etc/passwd                --> it updates on live only  
+
+
+
+                     ###  10-03-2022  ###
+
+A snapshot is a read-only copy of the entire file system and all the files contained
+in the file system. The contents of each snapshot reflect the state
+of the file system at the time the snapshot was created.
+Snapshots are used for data protection, any errors.
+
+rm -rf     -->  to remove all the data in a directory
+uptime     -->   It gives time of running, no of users, load average.
+top is the command to view all the files, information.
+top | grep -i load average
+touch varun{1..100}       --> to create files like varun1,varun2,...varun100
+who     --> gives how many users we are logged in right now
+tty     --> run 'tty', and the output will contain name of the terminal
+            connected to standard output (or, in other words, name
+            of the current terminal).
+whoami  --> which user we are currently logged in
+who am i  --> it gives the first user through which we logged in
+
+cd /etc/sysconfig/network-scrpits/ls   --> to view system files.
+nic stands for network interface card  --> 
+if onboot = no in config file then there is no ip add added while booting up
+
+history | sudo cat > filename  --> history transfer to another file which is newfile.
+history > filename     -->  history transfer to another file.
+ps -ef      -->  to show all the processors in a processor
+
+        ###  11-03-2022   ###
+
+su - user   --> it will switch with home directory
+su user     --> without home directory
+
+
+The concept of Linux File permission and ownership is crucial in Linux.
+For effective security, Linux divides authorization into 2 levels.
+     1. Ownership
+     2. Permission
+OWNERSHIP:-Every file and directory on your Unix/Linux system is assigned 3 types
+            of owner,given below.
+           A.) user
+           B.) group
+           C.) others
+
+PERMISSIONS:-
+    Read: This permission give you the authority to open and read a file. 
+           Read permission on a directory gives you the ability to lists its content.
+    Write:The write permission gives you the authority to modify the contents of
+           a file. The write permission on a directory gives you the authority to 
+           add, remove and rename files stored in the directory.
+           Consider a scenario where you have to write permission on file but do not
+           have write permission on the directory where the file is stored.
+           You will be able to modify the file contents. But you will 
+           not be able to rename, move or remove the file from the directory.
+    Execute: In Windows, an executable program usually has an extension “.exe” and
+           which you can easily run. In Unix/Linux, you cannot run a program 
+           unless the execute permission is set. If the execute permission is not
+           set, you might still be able to see/modify the program code(provided read
+           & write permissions are set), but not run it. 
+
+File permissions for (-rw-rw-r--):- 
+       position     characters           ownership
+           1             -             denotes file type
+          2-4            rw-           permission for user  
+          5-7            rw-           permission for group
+          8-10           r--           permission for other
+
+Total 10 characters
+     first one for finding whether it is directory or not
+     next three for owner permissions
+     next three for user permissions
+     next three for everyone permissions
+
+r=4, w=2, x=1
+r  -->  read
+w  -->  write
+x  -->  execution
+d  -->  d represents directory
+-  -->  no permissions
+
+
+give ls -l and see file permissions.
+
+ls -l --> permission, user, group, date, time, dirname
+chmod 400 filename --> No permission only in group
+chmod 440 filename --> To give read permission to both owner and group
+chmod 444 filename --> To give read permission to group users,owner and other users too
+chmod 644 filename --> To give rw per to owner, r to group, r to others
+chmod 664 filename --> To give rw to the group
+chmod 666 filename --> To give rw to all
+chmod 766 filename --> To give rwx to owner
+chmod 776 filename --> To give rwx to group
+chmod 777 filename --> to give rwx to all
+chmod 001 filename --> To give only x per to other users
+chmod 020 filename --> To give write command to group.
+
+Task:-
+1. set uid, set gid permissions
+2. Access control list
+
+
+             ###  14-03-2022  ###
+
+
+chown username:username filename  -->  to change the ownership of a file
+chown <owner>:groupname filename        -->  to give ownership to a user of a group 
+setfacl -m <username>:rwx /tmp/file1  -->  to give ownership to multiple persons
+getfacl filename         -->  to check the owners, user details.
+
+File System:- 
+vmware, settings-add-disk-size-ok
+
+fdisk -l   --> to check the disks which are already present
+lsblk      --> to check whether our newly added disk
+
+echo "- - -" > /sys/class/scsi_host/host0/scan(disk storage will be
+littlebit more than created bcoz it include other required attributes too)
+fdisk /dev/sdb       -->  to do partitions  
+           p for new partition, n for displaying partition type,
+           n-p-3-enter-size(if not mentioned all the remaining size will be
+           allocated)
+fdisk -l /dev/sdb    -->  to check the partitions
+
+Making file systems:- 
+mkfs -t ext4 /dev/sdc1  --> to create a new file system
+mkdir /<dirname>        --> for creating a directory
+mount -t ext4 /dev/sdc1 /data1(dirname)  --> mount point
+df -hT     --> df stands for disk free space, h stands for
+               human readable, T stands for type of filesystem
+free -h    --> to display the memory information
+free -g    --> to display the memory information in gigabytes
+free -k    --> to display the memory information in kilobytes
+df -Th     --> to display the file system information
+all the created partitions will be deleted if we boot the terminal
+
+
+             ###  15-03-2022  ###
+
+
+Take a ping response before using these two below commands
+ping ip_adress        --> to show whether a connection establishment will
+                          be there or not.    
+ssh <ip address>      --> to switch to another Virtual Machine
+ssh user@ip_address   --> to switch to another virtual machine with a 
+                          specific user 
+
+hostname              --> to know which VM we are connected.
+
+*** scp command is used to copy files over many servers ***
+
+1.//Copy from source directory//
+touch filename
+scp <filename> <ip_adress>:/tmp    --> this will copy the file at specified
+                                       destination.
+scp <filename>  ip_uname@address:/home/uname    --> this will copy the file
+                    at the specified destination in specific user
+
+
+2.//Copy from destination directory only//
+
+scp ip_address:/tmp/filename .
+
+3.//Copy from another VM//
+touch filename
+scp source_ip:/filepath destination_ip:/filepath
+
+
+                  ###  16-03-2022  ###
+
+blkid | grep -i /dev/sdd1   -->  to check file system is created or not
+
+ext2    -->   
+ext3    -->   
+ext4    -->  
+
+for permanent mount :-
+    fstab entries
+
+vi /etc/fstab
+after this command
+/dev/sdb1      /<dirname>        ext4       defaults           0            0   
+devicename      mountpoint      fstype     mountoptions    dumpdevice   fsckoptions 
+
+umount /data
+mount /data
+
+umount -a  -->  unmount all the file systems
+mount -a   -->  to mount again
+df -h :- 
+
+                 
+                     ###  17-03-2022  ###
+
+
+cat /etc/shadow   --> 
+link files in linux:-
+
+cd /boot/grub
+cd /boot/grub2/
+ls -l | grep -i grub
+
+2 types of links in linux operating system:-
+         1.hard link :- The links which we are creating for any file system 
+                        in our files we consider as hard link.
+                        * created inside the file system.
+
+                        ln filename fileown(to which it must link, another filename)
+                        
+         2.soft link :- created in different file systems.
+ 
+                        ln -s path1 path2
+                        s stands for symbolic(soft) link
+                        after that ls -l to view that copying 
+
+What is the diff b/w public key and private key?
+
+
+          ###  21-03-2022  ###
+
+ssh password authentication 
+
+ssh-keygen -t rsa
+after the above command
+by default press enter
+Then enter passphrase by default press enter
+Then enter same passphrase by default press enter
+
+ls -la  :- hidden files in the present working directory
+
+private key and public key are generated when we run 
+ssh-keygen -t rsa command
+
+
+cd .ssh/
+
+
+public key without password:-
+
+ssh-copy-id root@192.168.174.128
+
+
+          ###  22-03-2022  ###
+
+CR0N SHELLS:-
+cron job scheduling
+
+echo "How are you?"   --> this prints How are you?
+tty                   --> to find current terminal
+crontab -e            --> to enter and then scheduling a message as shown below
+
+ENTRIES OF A CRON JOB:- 
+minutes		hour	  dayofthemonth	 	 monthoftheyear 	 dayoftheweek 	               command
+   *             *              *                      *                      *           /bin/echo "hello" >> /dev/pts/0
+
+crontab -l      -->   to check crontab of that user
+
+
+
+For creating banners
+vi /etc/motd     --> for banner setting
+
+
+rsync 
+
+
+          ###  23-03-2022  ###
+
+fallocate -l 2G <filename>   -->  to create a specific size for that file here 2GB file is created.
+
+
+ls -lh  --> gives in human readable format, h stands for human readable
+
+
+If we copy without nohup, if terminal got disconnected it will stop.
+So if we use nohup command it will copy even if interruption happens
+
+
+nohup cp -pvr file2 /opt   -->  included nohup along with cp command
+
+
+previous versions we use the below command instead of fallocate
+dd if=/dev/zero of=/tmp/MT4050 bs=1G count=2
+
+
+
+cd -       --> it jump to previous directory or path
+cd ..      --> to jumps to parent directory
+
+
+        ###  24-03-2022  ###
+
+Thick provisioning  --> we have to select all amount
+Thin provisioning  --> even though it is out of capacity, it will be able to create but cannot be used.
+
+PAGE IN:- The process of sending in-active process from DISK to RAM
+
+PAGE OUT:- The process of sending in-active process from RAM to DISK
+
+
+
+To increase swap memory:- mkswap /dev/sdd
+                          swapon /dev/sdd
+
+
+du -sh /swapfile1
+
+
+ 
+         ###  25-03-2022  ###
+
+
+df -h .     -->  
+Password policies:- 
+
+cat /etc/login.defs       --> 
+
+
+set an expiry password::::
+first add a user and give password to it.
+To check status of a password    -->  passwd -S user_name
+To lock a user                   -->  passwd -l user_name
+To unlock a user                 -->  passwd -u user_name
+To set a password expiry for certain no of days  -->  passwd -x 15 user_name
+Here 15 is no of days.
+Unexpired passwd creation   -->  passwd -x -1 user_name
+
+
+         ###  29-03-2022  ###
+To make a directory as shared
+Applying stickybit
+/data exists in the file system, to make /data as shared directory
+
+
+chmod 1777 /data
+ll | grep -i data
+chmod 1776 /data
+
+
+Mounting iso image:- 
+mount /dev/sr0 /mnt
+
+
+I want to install particular package:-
+rpm -ivh (package)
+
+
+
+rpm -qa  --> to query all the installed packages in RPM.
+
+
+         ###  30-03-2022  ###
+
+tar -cvf sample.tar 
+
+tar -cvzf file_name 
+
+tar -xvzf file_name
+
+tar -cfv file_name
+
+tar -tvf file_name
+
+
+           ###  vi command editor options   ###
+
+shift+g     ---> To go to last line of a file
+:100        ---> To go to 100th line of a file  
+:se nu      ---> It will display how many lines are there in the file 
+/server5    ---> to check where that word server5 is there in the file
+:%s/publickey/privatekey/g ---> Replace publickey with privatekey
+u            -->  undo      
+20dd         -->  It will delete first 20 lines in a file
+dd           -->  It will remove that line
+$            -->  cursor moves to last value of the lines
+^            -->  cursor moves to first value of the lines
+5yy          -->  to copy first five lines
+p            -->  paste 
+G            -->  last line of the line
+:1 	          -->  first line
+x            -->  to remove letter in a line
+R            -->  Replace the line
+true > filename  -->  to nullify the data in a file
+
+
+               ###  LINUX ON 01-04-2022  ###
+
+
+INODES:-
+df -hi         -->
+df -hTi        -->
+Inodes:- inodes stands for indexing nodes.
+An Inode number is a uniquely existing number for all the files in Linux and all Unix type systems.
+When a file is created on a system, a file name and Inode number is assigned to it.
+Generally, to access a file, a user uses the file name but internally file name
+is first mapped with respective Inode number stored in a table.
+Inode doesn't contain the file name. Reason for this is to maintain hard-links for the files. 
+When all the other information is separated from the file name then only we can have various
+file names pointing to the same Inode.
+An Inode is a data structure containing metadata about the files.
+
+Following contents are stored in the Inode from a file:
+o	User ID of file
+o	Group ID of file
+o	Device ID
+o	File size
+o	Date of creation
+o	Permission
+o	Owner of the file
+o	File protection flag
+o	Link counter to determine number of hard links
+df -hi       
+The Inode table contains all the Inodes and is created when file system is created. The df -i command can be used to check how many inodes are free and left unused in the filesystem.
+ls -li       to display inode number of that particular directory or file present in that particular directory
+
+
+
+               ###  LINUX ON 04-04-2022  ###
+
+true > filename,echo > filename,> filename, : Nullifying the file,Before doing this,prefer copying to some loacation and do as we can't back that data
+Basic implementations
+
+AWK commands:- 
+
+awk '{print}' <file_name>   -->  to print the content in that file
+awk '/intern/' <file_name>  -->  to print the rows in which intern word is there
+awk '/intern/ {print $1,$4}' <file_name>  -->
+awk '/intern/ {print $0}' <file_name>     -->
+awk '/intern/ {print NR,$1} <file_name>   -->
+awk '/intern/ {print $1,$NF} <file_name>  -->
+
+awk '{print}' filename: To print the content in the file
+awk '/word/' filename : To print the rows having word in the file
+awk '/word/ {print $1,$4}' filename : To print the particular columns having this word in the file
+$0 indicates the complete line
+Variables: NR()
+awk '/word/ {print NR,$1}' filename : To print the particular column along with the nr number
+awk '/word/ {print NF,$1}' filename : To print the count of words and column
+
+
+SED commands:-
+
+sed 's/intern/manager/g' file_name
+
+sed '8d' file_name        -->  
+
+sed '2,$d' file_name      -->  from 2nd line every line deletes
+
+sed:stream editor, To do the modifications without entering into the file
+sed 's/oldword/newword/g' filename: To replace words, g is ised to replace more than 1 occurence in a line
+sed 's/oldword/newword/2' filename: To replace the 2nd occurence in a line
+sed 's/oldword/newword/2g' filename:
+sed '8(line number) s/oldword/newword/' filename: To edit a particular line
+sed '8 d' filename: To delete a line
+sed '2,$d' filename : Deletes from the 2nd line till end of the file
+
+
+
+Differences between BASH and DOS:
+
+The key differences between the BASH and DOS console lie in 3 areas:
+
+- BASH commands are case sensitive while DOS commands are not;
+
+- Under BASH, / character is a directory separator and \ acts as 
+  an escape character. Under DOS, / serves as a command argument
+  delimiter and \ is the directory separator
+
+- DOS follows a convention in naming files, which is 8 character file
+  name followed by a dot and 3 characters for the extension. BASH follows
+  no such convention.
+
+
+*** What are inode and process id?***
+
+*** What are the process states in Linux?***
+The following are the process states:
+1. Running: This is a state where a process is either in running or ready to run.
+2. Interruptible: This state is a blocked state of a process which awaits for an event
+   or a signal from another process
+3. Uninterruptible: It is also a blocked state. The process is forced to halt for
+   certain condition that a hardware status is waited and a signal could not be handled.
+4. Stopped: Once the process is completed, this state occurs. This process can be restarted
+5. Zombie: In this state, the process will be terminated and the information will 
+   still be available in the process table. 
+
+*** Redirection operator in linux ***
+Redirection is a feature in Linux such that when executing a command, you can
+change the standard input/output devices. The basic workflow of any Linux
+command is that it takes an input and give an output.
+
+The standard input (stdin) device is the keyboard.
+The standard output (stdout) device is the screen.
+With redirection, the above standard input/output can be changed.
+Output Redirection
+The ‘>‘ symbol is used for output (STDOUT) redirection.
+The ‘<‘ symbol is used for input(STDIN) redirection
+
+
+*** minimum number of disk partitions to install linux ***
+While the absolute minimum number of partitions would be one (1), 
+a typical installation of GNU/Linux will have at least two (2) partitions:
+the root partition (denoted as /) and the swap partition. You can opt to have
+all files on a single partition within most distro’s during installation.\
+
+*** free command in linux ***
+free command which displays the total amount of free space available along
+with the amount of memory used and swap memory in the system, and also the 
+buffers used by the kernel.
+EX:- free -h, free -k, free -b, free -g, free -t
+
+*** Is it legal to edit linux kernel?*** 
+Yes. You can edit Linux Kernel because it is released under General Public License (GPL)
+and any one can edit it. It comes under the category of free and open source software.
+It is absolutely legal to edit the source code for the linux kernel. The linux
+kernel is released as 'Open Source' and licensed in such a way as to encourage
+edits, code submissions, changes, bug fixes, etc. You can edit it however you like,
+to fit your environment.
+
+*** Difference b/w Ext2, Ext3, Ext4 ***
+Ext2
+Ext2 stands for second extended file system.
+This was developed to overcome the limitation of the original ext file system.
+Ext2 does not have journaling feature.
+On flash drives, usb drives, ext2 is recommended, as it doesn’t need to do the over head of journaling.
+Maximum individual file size can be from 16 GB to 2 TB
+Overall ext2 file system size can be from 2 TB to 32 TB
+
+Ext3
+Ext3 stands for third extended file system.
+The main benefit of ext3 is that it allows journaling.
+Journaling has a dedicated area in the file system, where all the changes are tracked.
+When the system crashes, the possibility of file system corruption is less because
+of journaling.
+Maximum individual file size can be from 16 GB to 2 TB
+Overall ext3 file system size can be from 2 TB to 32 TB
+You can convert a ext2 file system to ext3 file system directly (without backup/restore).
+
+
+Ext4
+Ext4 stands for fourth extended file system.
+Supports huge individual file size and overall file system size.
+Maximum individual file size can be from 16 GB to 16 TB
+Overall maximum ext4 file system size is 1 EB (exabyte). 1 EB = 1024 PB (petabyte). 1 PB = 1024 TB (terabyte).
+Directory can contain a maximum of 64,000 subdirectories (as opposed to 32,000 in ext3)
+You can also mount an existing ext3 fs as ext4 fs (without having to upgrade it).
+Several other new features are introduced in ext4: multiblock allocation, 
+delayed allocation, journal checksum. fast fsck, etc. All you need to know is that
+these new features have improved the performance and reliability of the filesystem
+when compared to ext3.
+In ext4, you also have the option of turning the journaling feature “off”.
+
+
+
+
+
